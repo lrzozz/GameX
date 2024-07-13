@@ -3,7 +3,7 @@ import axeron.prop
 local verName="V1.0-stable-online"
 local version=10
 local p="[ ➤ ]"
-local fc="https://lrzozz.github.io/GameX/core.sh"
+local fc="https://lrzozz.github.io/GameX/full/core.sh"
 local id="$(settings get secure android_id)"
 local trim_id="${id:0:6}"
 
