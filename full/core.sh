@@ -101,7 +101,7 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
 fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
-  echo "└$s LAxeron is detected [Fast Connect]" && sleep 1
+  echo "└[ $runPackage ] LAxeron Core is detected [Fast Connected]" && sleep 1
 else
   echo "├$w LAxeron not Installed"
   echo "└$i Please download LAxeron app from FahrezONE officially"
