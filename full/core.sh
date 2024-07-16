@@ -102,6 +102,7 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
 fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
+  device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.4:mode=3,fps=90,downscaleFactor=0.2
   echo "└$my LAxeron is detected [Fast Connected]" && sleep 1
 else
   echo "├$w LAxeron not Installed"
