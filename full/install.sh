@@ -1,8 +1,6 @@
 source $FUNCTION
 source $(dirname $0)/axeron.prop
 import axeron.prop
-local verName=$version
-local version=10
 local p="[ ➤ ]"
 local fc="https://lrzozz.github.io/GameX/full/core.sh"
 local id="$(settings get secure android_id)"
@@ -17,12 +15,12 @@ case $1 in
     time_diff=$((2700000 - (current_time - last_time)))
     echo "$name | Information"
     echo "$p User ID: $id($trim_id)"
-    echo "$p Version: $verName($version)"
+    echo "$p Version: $version($versionCode)"
     echo "$p Package: ${runPackage:-null}"
     exit 0
     ;;
 esac
 
-echo "$name | Full Version [$verName($id)]"
+echo "$name | Full Version [$version($trim_id)]"
 echo "$p Thanks For Buy Full Version, Enjoy Increase Performance 40%"
 storm -x "$fc" -fn "fc" "$@"
