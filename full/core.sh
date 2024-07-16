@@ -3,6 +3,7 @@ import axeron.prop
 w="[!]" #warn
 i="[?]" #info
 s="[\$]" #success
+my="[➤]"
 axeron="com.fhrz.axeron"
 host="fahrez256.github.io"
 host_path="/Laxeron/Core_2404.txt"
@@ -101,7 +102,7 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
 fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
-  echo "└[ $runPackage ] LAxeron Core is detected [Fast Connected]" && sleep 1
+  echo "└$my LAxeron is detected [Fast Connected]" && sleep 1
 else
   echo "├$w LAxeron not Installed"
   echo "└$i Please download LAxeron app from FahrezONE officially"
