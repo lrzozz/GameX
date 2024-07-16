@@ -1,6 +1,7 @@
 source $FUNCTION
+source $(dirname $0)/axeron.prop
 import axeron.prop
-local verName="V1.0-stable-online"
+local verName=$version
 local version=10
 local p="[ ➤ ]"
 local fc="https://lrzozz.github.io/GameX/full/core.sh"
