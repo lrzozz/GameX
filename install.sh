@@ -35,11 +35,11 @@ case $1 in
     echo "Time: Lifetime"
     exit 0
     ;;
-  --buyvip | -bv)
+  --buyvip | -bv )
     echo "$name | Buy VIP"
     echo "Launching To Telegram..."
     sleep 2
-    am start -a android.intent.action.VIEW -d https://t.me/lrzozz > /dev/null 2>&1
+    am start -a android.intent.action.VIEW -d https://t.me/lrzozz
     exit 0
     ;;
 esac
