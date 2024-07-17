@@ -21,7 +21,7 @@ case $1 in
     ;;
   --help | -h )
     echo "$name | Help"
-    echo "Usage: ash gamex [-p <package_name>|<options>]
+    echo "Usage: ash gamex [-p <package_name>|<options>]"
     echo "Options: "
     echo "--help | -h : To Print This"
     echo "--info | -i : To Check Informations Of Module"
