@@ -19,6 +19,14 @@ case $1 in
     echo "$p Package: ${runPackage:-null}"
     exit 0
     ;;
+  --help | -h )
+    echo "$name | Help"
+    echo "Usage: ash gamex [-p <package_name>|<options>]
+    echo "Options: "
+    echo "--help | -h : To Print This"
+    echo "--info | -i : To Check Informations Of Module"
+    exit 0
+    ;;
 esac
 
 echo "$name | Full Version [$version($trim_id)]"
