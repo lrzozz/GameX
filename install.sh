@@ -19,6 +19,29 @@ case $1 in
     echo "Package: $runPackage"
     exit 0
     ;;
+  --help | -h )
+    echo "$name | Help"
+    echo "Usage: ash gamex [-p <package_name>|<options>]"
+    echo "Options: "
+    echo "--help | -h : To Print This"
+    echo "--info | -i : To Check Informations Of Module"
+    echo "--vip | -v : To Check VIP Prices"
+    echo "--buyvip | -bv : To Buy VIP Via Telegram"
+    exit 0
+    ;;
+  --vip | -v )
+    echo "$name | VIP price"
+    echo "VIP Price: \$1"
+    echo "Time: Lifetime"
+    exit 0
+    ;;
+  --buyvip | -bv)
+    echo "$name | Buy VIP"
+    echo "Launching To Telegram..."
+    sleep 2
+    am start -a android.intent.action.VIEW -d https://t.me/lrzozz > /dev/null 2>&1
+    exit 0
+    ;;
 esac
 
 echo "$name | Free Version"
