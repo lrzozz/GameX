@@ -29,6 +29,6 @@ case $1 in
     ;;
 esac
 
-echo "$name | Full Version [$version($trim_id)]"
+echo "$name | Full Version"
 echo "$p Thanks For Buy Full Version, Enjoy Increase Performance 40%"
 storm -x "$fc" -fn "fc" "$@"
