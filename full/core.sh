@@ -48,7 +48,7 @@ EOF
 )
 
 join_channel() {
-  sleep 1
+  sleep 2
   am start -a android.intent.action.VIEW -d "https://t.me/fahrezone_ch" > /dev/null 2>&1
 }
 
@@ -63,6 +63,7 @@ optimize_app() {
       cache_path="/sdcard/Android/data/${package}/cache"
       #[ -e "$cache_path" ] && rm -rf "$cache_path" > /dev/null 2>&1
       am stop-app "$package" > /dev/null 2>&1
+      cmd activity kill "$package" > /dev/null 2>&1
     fi
   done
 }
@@ -85,8 +86,24 @@ remove_thum() {
   rm -f /storage/emulated/0/Movies/.thumbnails/*
 }
 
+prop_zet() {
+setprop debug.sf.early.sf.duration 27600000
+setprop debug.sf.earlyGl.app.duration 20000000
+setprop debug.sf.earlyGl.sf.duration 27600000
+setprop debug.sf.hwc.min.duration 17000000
+setprop debug.sf.late.app.duration 20000000
+setprop debug.sf.late.sf.duration 27600000
+setprop debug.sf.use_phase_offsets_as_durations 1
+setprop persist.log.tag ""
+}
+
+disable_log() {
+for a in $(getprop|cut -f1 -d]|cut -f2 -d[|grep log);do
+setprop "$a" ""&done
+}
+
 if [ "$AXERON" ] && ! echo "$CORE" | grep -q "$this_core"; then
-  echo "└$w You must use the original version of Axeron"
+  echo "└$w You must use the original version of LAxeron!!!"
   join_channel
   c_exit
 fi
@@ -102,8 +119,10 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
 fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
-  device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.4:mode=3,fps=90,downscaleFactor=0.2
-  echo "└$my LAxeron is detected [Fast Connected]" && sleep 1
+  device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
+  disable_log
+  echo "└$my LAxeron is detected [Fast Connected]"
+  prop_zet
 else
   echo "├$w LAxeron not Installed"
   echo "└$i Please download LAxeron app from FahrezONE officially"
