@@ -86,11 +86,6 @@ remove_thum() {
   rm -f /storage/emulated/0/Movies/.thumbnails/*
 }
 
-disable_log() {
-for a in $(getprop|cut -f1 -d]|cut -f2 -d[|grep log);do
-setprop "$a" ""&done
-}
-
 if [ "$AXERON" ] && ! echo "$CORE" | grep -q "$this_core"; then
   echo "└$w You must use the original version of LAxeron!!!"
   join_channel
@@ -109,7 +104,6 @@ fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
   device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
-  disable_log
   echo "└$my LAxeron is detected [Fast Connected]"
 else
   echo "├$w LAxeron not Installed"
