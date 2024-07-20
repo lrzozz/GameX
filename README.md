@@ -12,3 +12,9 @@ GameX VIP Features:
 GameX Free Features:
 - Default ( Core By FahrezONE )
 - Optimizing Apps Game
+
+What's new in Version 1.5?:
+- Added Downgrade Graphics
+- Fixing BUG And Error
+- Added Other Property Codes
+- Fixed Waiting Too Long When Wanting to Enter LAxeron
