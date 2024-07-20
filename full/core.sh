@@ -103,7 +103,11 @@ if ! command -v am > /dev/null || ! command -v pm > /dev/null; then
 fi
 
 if echo "$PACKAGES" | grep -qw "$axeron"; then
+  optimize_app
+  stop_google_app
+  remove_thum
   device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
+  sleep 2
   echo "└$my LAxeron is detected [Fast Connected]"
 else
   echo "├$w LAxeron not Installed"
@@ -113,16 +117,5 @@ else
 fi
 
 mkdir -p "$log_path"
-current_time=$(date +%s%3N)
-last_time=$(cat "$log_file" 2>/dev/null)
-time_diff=$((current_time - last_time))
-
-if [ "$time_diff" -ge 2700000 ] || [ ! -e "$log_file" ]; then
-  optimize_app
-  stop_google_app
-  remove_thum
-  echo -n "$current_time" > "$log_file"
-fi
-
 am start -a android.intent.action.VIEW -n "com.fhrz.axeron/.Process" --es AXERON "$axeron_core" --es CORE "$core_info" > /dev/null 2>&1
 c_exit
