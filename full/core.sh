@@ -107,7 +107,6 @@ if echo "$PACKAGES" | grep -qw "$axeron"; then
   stop_google_app
   remove_thum
   device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
-  sleep 2
   echo "└$my LAxeron is detected [Fast Connected]"
 else
   echo "├$w LAxeron not Installed"
