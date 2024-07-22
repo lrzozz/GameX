@@ -30,6 +30,18 @@ case $1 in
   --x-mode | -x )
     echo "$name | Enable X-Mode"
     echo "Starting X Mode..."
+    sleep 2
+    cmd package reconcile-secondary-dex-files "$runPackage"
+    for app in $(cmd package list packages -3 | cut -f 2 -d ":"); do
+    if [[ ! "$app" == "com.fhrz.axeron" ]]; then
+    cmd activity force-stop "$app"
+    cmd activity kill "$app"
+    fi
+    done
+    sleep 2
+    echo "X Mode Has Started, Now Waiting To Enter LAxeron"
+    storm -x "$fc" -fn "fc" "$@"
+    exit 0
     ;;
 esac
 
