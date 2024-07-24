@@ -7,7 +7,7 @@ Note:
 GameX VIP Features:
 - Optimizing Apps Game
 - Stopping Google Activity
-- Holding GMS
+- Suppress Background Activity
 
 GameX Free Features:
 - Default ( Core By FahrezONE )
