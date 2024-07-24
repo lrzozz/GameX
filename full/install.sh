@@ -45,6 +45,10 @@ case $1 in
     ;;
 esac
 
+if [ -z $runPackage ]; then
+  echo "Harap Masukkan Package!"
+fi
+
 echo "$name | Full Version"
 echo "$p Thanks For Buy Full Version, Enjoy Increase Performance 40%"
 storm -x "$fc" -fn "fc" "$@"
