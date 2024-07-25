@@ -27,7 +27,7 @@ case $1 in
     echo "--info | -i : To Check Informations Of Module"
     exit 0
     ;;
-  --x-mode | -x )
+  --x-mode | -xm )
     echo "$name | Enable X-Mode"
     echo "Starting X Mode..."
     sleep 2
