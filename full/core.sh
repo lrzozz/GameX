@@ -68,6 +68,12 @@ optimize_app() {
   done
 }
 
+compile_app() {
+ for pkg in ($pm list packages | cut -f2 -d ":"); do
+   pm compile -m speed-profile -f $pkg
+done
+}
+
 stop_google_app() {
   am set-standby-bucket com.google.android.gms never
   cmd appops set com.google.android.gms RUN_ANY_IN_BACKGROUND ignore
@@ -105,6 +111,7 @@ fi
 if echo "$PACKAGES" | grep -qw "$axeron"; then
   optimize_app
   stop_google_app
+  compile_app
   remove_thum
   device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
   echo "└$my LAxeron is detected [Fast Connected]"
