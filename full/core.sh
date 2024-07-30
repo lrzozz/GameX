@@ -69,7 +69,7 @@ optimize_app() {
 }
 
 compile_app() {
- for pkg in ($pm list packages | cut -f2 -d ":"); do
+ for pkg in $(pm list packages | cut -f2 -d ":"); do
    pm compile -m speed-profile -f $pkg
 done
 }
