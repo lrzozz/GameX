@@ -3,7 +3,7 @@ import axeron.prop
 w="[!]" #warn
 i="[?]" #info
 s="[\$]" #success
-my="[➤]"
+my="[ ➤ ]"
 axeron="com.fhrz.axeron"
 host="fahrez256.github.io"
 host_path="/Laxeron/Core_2404.txt"
@@ -68,12 +68,6 @@ optimize_app() {
   done
 }
 
-compile_app() {
- for pkg in $(pm list packages | cut -f2 -d ":"); do
-   pm compile -m speed-profile -f $pkg
-done
-}
-
 stop_google_app() {
   am set-standby-bucket com.google.android.gms never
   cmd appops set com.google.android.gms RUN_ANY_IN_BACKGROUND ignore
@@ -111,10 +105,9 @@ fi
 if echo "$PACKAGES" | grep -qw "$axeron"; then
   optimize_app
   stop_google_app
-  compile_app
   remove_thum
-  device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.3:mode=3,fps=90,downscaleFactor=0.2
-  echo "└$my LAxeron is detected [Fast Connected]"
+  device_config put game_overlay "$runPackage" mode=2,fps=165,downscaleFactor=0.4:mode=3,fps=90,downscaleFactor=0.2
+  echo "└$my LAxeron is detected [Fast Connected 3.0+]"
 else
   echo "├$w LAxeron not Installed"
   echo "└$i Please download LAxeron app from FahrezONE officially"
